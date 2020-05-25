@@ -21,16 +21,18 @@ repositories {
     jcenter()
 }
 
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 sourceSets {
     main {
         java {
             srcDirs 'build/generated/source/proto/main/grpc'
             srcDirs 'build/generated/source/proto/main/java'
-            srcDirs 'src/main/java'
         }
-        proto {
-            srcDir 'src/main/proto'
-        }
+        // proto {
+        //     srcDir 'src/main/proto'
+        // }
     }
 }
 
@@ -73,7 +75,24 @@ dependencies {
 
 }
 
-application {
-    // Define the main class for the application.
-    mainClassName = 'gRPC.demo.App'
+startScripts.enabled = false
+
+task appServer(type: CreateStartScripts) {
+    mainClassName = 'gRPC.demo.AppServer'
+    applicationName = 'app-server'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
+task appClient(type: CreateStartScripts) {
+    mainClassName = 'gRPC.demo.AppClient'
+    applicationName = 'app-client'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
+applicationDistribution.into('bin') {
+    from(appServer)
+    from(appClient)
+    fileMode = 0755
 }
