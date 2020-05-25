@@ -24,8 +24,8 @@ repositories {
 sourceSets {
     main {
         java {
-            srcDirs 'src/main/java/proto-gen/main/grpc'
-            srcDirs 'src/main/java/proto-gen/main/java'
+            srcDirs 'build/generated/source/proto/main/grpc'
+            srcDirs 'build/generated/source/proto/main/java'
             srcDirs 'src/main/java'
         }
         proto {
@@ -36,8 +36,6 @@ sourceSets {
 
 protobuf {
   // Configure the protoc executable
-  generatedFilesBaseDir = "$projectDir/src/main/java/proto-gen"
-
   protoc {
     // Download from repositories
     artifact = 'com.google.protobuf:protoc:3.12.1'
