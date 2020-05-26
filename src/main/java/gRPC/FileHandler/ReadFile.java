@@ -9,7 +9,7 @@ public class ReadFile {
     public String read(String studentName) throws FileNotFoundException {
         
         try {
-            File studentFile = new File(studentName+".txt");
+            File studentFile = new File("src/main/java/gRPC/resources/"+studentName+".txt");
             Scanner streamData = new Scanner(studentFile);
             String fileData = new String();
 

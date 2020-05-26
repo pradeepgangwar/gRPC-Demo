@@ -8,7 +8,7 @@ public class WriteFile {
 
     public boolean write(String studentName, String course, String regNo) throws IOException {
         try {
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(studentName+".txt")); 
+            BufferedWriter fileWriter = new BufferedWriter(new FileWriter("src/main/java/gRPC/resources/"+studentName+".txt")); 
             String studentInfo = "Student Name: " + studentName + "\nReg. No: " + regNo + "\nCourse: " + course + "\n";
             fileWriter.write(studentInfo);
             fileWriter.close();
