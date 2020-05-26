@@ -16,7 +16,9 @@ public class AppServer {
 
         int port = 8000;
         server = ServerBuilder.forPort(port)
-                    .addService(new HelloService())
+                    .addService(new CreateFileService())
+                    .addService(new WriteToFileService())
+                    .addService(new ReadFileService())
                     .build()
                     .start();
         logger.log(Level.INFO, "Server started at port " + port);

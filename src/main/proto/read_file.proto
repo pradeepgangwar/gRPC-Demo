@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package gRPC.demo;
+
+option java_package = "gRPC.demo";
+option java_multiple_files = true;
+
+message ReadRequest {
+    string student_name = 1;
+}
+
+message ReadResponse {
+    bool data_found = 1;
+    string student_data = 2;
+}
+
+service ReadFileService {
+    rpc ReadFile(ReadRequest) returns (ReadResponse);
+}
