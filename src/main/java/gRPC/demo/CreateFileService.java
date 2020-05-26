@@ -15,7 +15,7 @@ public class CreateFileService extends CreateFileServiceGrpc.CreateFileServiceIm
         
         String studentName = request.getStudentName();
         logger.log(Level.INFO, "Request Received: To create a new student record for " + studentName);
-        studentName.replaceAll("\\s", "");
+        studentName = studentName.replaceAll("\\s", "");
         
         CreateFile createNewFile = new CreateFile();
 

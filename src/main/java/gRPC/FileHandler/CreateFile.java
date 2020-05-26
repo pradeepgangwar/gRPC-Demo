@@ -10,7 +10,7 @@ public class CreateFile {
     public boolean create(String fileName) throws FileAlreadyExistsException, IOException
     {
         try {
-            File newFile = new File("src/main/java/gRPC/resources/"+fileName+".txt");
+            File newFile = new File(fileName+".txt");
             if (newFile.createNewFile()) {
                 return true;
             } else {
